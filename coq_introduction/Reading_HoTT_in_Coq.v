@@ -188,7 +188,7 @@ Thus, we could have checked the number five simply by doing
 
 Check 5.
 
-(** 
+(**
 Now that we have seen the basics of Coq's inductive types, let's see
 its other main feature: dependent functions.
 *)
@@ -201,6 +201,8 @@ any type.
 
 The identity function (or identity map) for natural numbers is:
 *)
+
+Section IdentityFunction.
 
 Definition idmap_nat : nat -> nat :=
   fun (n:nat) => n.
@@ -404,6 +406,7 @@ allows very concise definitions.
 
 Compute idmap_inferred (S (S O)).
 
+End IdentityFunction.
 
 (** ** Addition of Natural Numbers *)
 (**
