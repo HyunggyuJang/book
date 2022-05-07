@@ -85,6 +85,8 @@ whose elements are constructed using
 The equivalent in Coq is:
 *)
 
+Module NaturalNumbers.
+
 Inductive nat : Set :=
   | O : nat
   | S : nat -> nat.
@@ -108,7 +110,7 @@ second says [S] is a function from [nat]s to [nat]s.
 After the last constructor is a period (".").  The command that
 started with the word "Inductive" ends at the period.  Every command
 in Coq ends with a period.
-*)
+ *)
 
 (** *** Properties of Constructors *)
 (**
@@ -135,14 +137,14 @@ univalence axiom and the path constructors of higher inductive types
 create new elements of the identity type.  Higher inductive types can
 define terms created with different constructors as propositionally
 equal.
-*)
+ *)
 
 (** *** Examples of Natural Numbers *)
 (**
 Coq's command [Check] will print out the type of a term.  Obviously,
 [O] is a valid term and the [Check] will print the type [nat].
 (Remember, [O] here is the capital letter "oh".)
-*)
+ *)
 (* CoqIDE users: In CoqIDE, the Check command does nothing.  Instead,
 highlight the term, open the "Queries" menu, and select [Check]. *)
 
@@ -156,7 +158,7 @@ instead of
 -   gcd(4, 6)
 
 Thus, the number one is written:
-*)
+ *)
 
 Check S O.
 
@@ -164,23 +166,21 @@ Check S O.
 For the number two, we have to add parentheses so that the second S is
 interpreted as a function call rather than as a second argument to the
 first S.
-*)
+ *)
 
 Check S (S O).
 
 (**
 The number five is 
-*)
+ *)
 
 Check S (S (S (S (S O)))).
 
-
-(** 
+(**
 By default, Coq loads a plugin that interprets decimal numbers as [nat]s.
 *)
 
-Require Import Datatypes.
-Declare ML Module "nat_syntax_plugin".
+End NaturalNumbers.
 
 (**
 Thus, we could have checked the number five simply by doing
